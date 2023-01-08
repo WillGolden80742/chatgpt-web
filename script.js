@@ -21,13 +21,33 @@ function showErrorMessage(e) {
     setTimeout(() => { errorDiv.remove(); }, 5000);
 }
 
+function translate (region) {
+    region = region.split("-")[1];
+    switch (region) {
+        case "de":
+            return "ANTWORTEN AUF DEUTSCH:";
+        case "fr":
+            return "REPONSE EN FRANÇAIS:";
+        case "es": 
+            return "RESPUESTA EN ESPAÑOL:";
+        case "pt":
+            return "RESPONDA EM PORTUGUÊS:";
+        case "it":
+            return "RISPOSTA IN ITALIANO:";
+        case "ru":
+            return "ОТВЕТЫ НА РУССКОМ:";
+        default:
+            return "ANSWERING IN ENGLISH:";
+    }
+}
+
 function pasteWebResultsToTextArea(results, query) {
     let counter = 1;
     let formattedResults = "User googled \""+query+"\" and got the following results order by date (with the most recent results first) :\n\n";
     formattedResults = formattedResults + results.reduce((acc, result) => acc += `Text ${counter++} : "${result.body}"\nSource: ${result.href}\n\n`, "");
 
     formattedResults = formattedResults + `\nCurrent date: ${new Date().toLocaleDateString()}`;
-    formattedResults = formattedResults + `\nInstructions: Disregarding your outdated database and based on the texts, try to guess : \"${query}\"\nAnswering in ${region} language:`;
+    formattedResults = formattedResults + `\nInstructions: Disregarding your outdated database and based on the texts, try to guess : \"${query}\"\n${translate(region)}`;
 
     textarea.value = formattedResults;
 }
