@@ -109,7 +109,8 @@ function translate (region,query) {
 function pasteWebResultsToTextArea(results, query) {
     let counter = 1;
     let formattedResults = "In day "+(new Date().toLocaleDateString())+", user googled \""+query+"\" and got the following results order by date (with the most recent results first):\n\n";
-    formattedResults = formattedResults + results.reduce((acc, result) => acc += `Search ${counter++}: "${result.body}"\nSource: ${result.href}\n\n`, "");
+    //formattedResults = formattedResults + results.reduce((acc, result) => acc += `"${result.body}"\n\n`, "");
+    formattedResults = formattedResults + results.reduce((acc, result) => acc += `"${result.body}"\n\n`, "");
     formattedResults = formattedResults + `${translate(region,query).toUpperCase()}`;
     textarea.value = formattedResults;
 }
