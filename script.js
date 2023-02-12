@@ -4,6 +4,7 @@ var numWebResults = 1;
 var timePeriod = "";
 var region = "";
 var textarea;
+var source = false;
 
 chrome.storage.sync.get(["num_web_results", "web_access", "region"], (data) => {
     numWebResults = data.num_web_results;
@@ -107,12 +108,18 @@ function translate (region,query) {
 }
 
 function pasteWebResultsToTextArea(results, query) {
-    let counter = 1;
     let formattedResults = "In day "+(new Date().toLocaleDateString())+", user googled \""+query+"\" and got the following results order by date (with the most recent results first):\n\n";
-    //formattedResults = formattedResults + results.reduce((acc, result) => acc += `"${result.body}"\n\n`, "");
-    formattedResults = formattedResults + results.reduce((acc, result) => acc += `"${result.body}"\n\n`, "");
+    formattedResults = formattedResults + results.reduce((acc, result) => acc += `"${result.body}"\n${href(result)}\n`, "");
     formattedResults = formattedResults + `${translate(region,query).toUpperCase()}`;
     textarea.value = formattedResults;
+}
+
+function href (result) {
+    if (source) { 
+        return "Source: "+result.href+"\n";
+    } else {
+        return "";
+    } 
 }
 
 function pressEnter() {
@@ -200,7 +207,7 @@ function updateUI() {
 
     // Web access switch
     var toggleWebAccessDiv = document.createElement("div");
-    toggleWebAccessDiv.innerHTML = '<label class="web-chatgpt-toggle"><input class="web-chatgpt-toggle-checkbox" type="checkbox"><div class="web-chatgpt-toggle-switch"></div><span class="web-chatgpt-toggle-label">Search on the web</span></label>';
+    toggleWebAccessDiv.innerHTML = '<label class="web-chatgpt-toggle"><input class="web-chatgpt-toggle-checkbox" type="checkbox"><div class="web-chatgpt-toggle-switch"></div><span class="web-chatgpt-toggle-label">Search on the web</span>&nbsp;&nbsp;</label><label class="web-chatgpt-toggle"><input class="web-chatgpt-toggle-checkbox source-checkbox" type="checkbox"><div class="web-chatgpt-toggle-switch"></div><span class="web-chatgpt-toggle-label">Source</span></label>';
     toggleWebAccessDiv.classList.add("web-chatgpt-toggle-web-access");
     chrome.storage.sync.get("web_access", (data) => {
         toggleWebAccessDiv.querySelector(".web-chatgpt-toggle-checkbox").checked = data.web_access;
@@ -208,9 +215,19 @@ function updateUI() {
 
     var checkbox = toggleWebAccessDiv.querySelector(".web-chatgpt-toggle-checkbox");
     checkbox.addEventListener("click", () => {
-            isWebAccessOn = checkbox.checked;
-            chrome.storage.sync.set({ "web_access": checkbox.checked });
-        });
+        isWebAccessOn = checkbox.checked;
+        chrome.storage.sync.set({ "web_access": checkbox.checked });
+    });
+
+    chrome.storage.sync.get("source", (data) => {
+        toggleWebAccessDiv.querySelector(".source-checkbox").checked = data.source;
+    });
+
+    var checkbox = toggleWebAccessDiv.querySelector(".source-checkbox");
+    checkbox.addEventListener("click", () => {
+        source = checkbox.checked;
+        chrome.storage.sync.set({ "source": checkbox.checked });
+    });    
 
 
     // Number of web results
