@@ -220,6 +220,7 @@ function updateUI() {
         source = checkbox.checked;
         chrome.storage.sync.set({ "web_access": checkbox.checked });
         toggleWebAccessDiv.querySelector(".source-checkbox").checked = source;
+        toggleWebAccessDiv.querySelector(".source-checkbox").disabled = !isWebAccessOn;
     });
 
     chrome.storage.sync.get("source", (data) => {
