@@ -208,6 +208,7 @@ function updateUI() {
     // Web access switch
     var toggleWebAccessDiv = document.createElement("div");
     toggleWebAccessDiv.innerHTML = '<label class="web-chatgpt-toggle"><input class="web-chatgpt-toggle-checkbox" type="checkbox"><div class="web-chatgpt-toggle-switch"></div><span class="web-chatgpt-toggle-label">Search on the web</span>&nbsp;&nbsp;</label><label class="web-chatgpt-toggle"><input class="web-chatgpt-toggle-checkbox source-checkbox" type="checkbox"><div class="web-chatgpt-toggle-switch"></div><span class="web-chatgpt-toggle-label">Source</span></label>';
+    toggleWebAccessDiv.classList.add("source-checkbox");
     toggleWebAccessDiv.classList.add("web-chatgpt-toggle-web-access");
     chrome.storage.sync.get("web_access", (data) => {
         toggleWebAccessDiv.querySelector(".web-chatgpt-toggle-checkbox").checked = data.web_access;
@@ -216,19 +217,21 @@ function updateUI() {
     var checkbox = toggleWebAccessDiv.querySelector(".web-chatgpt-toggle-checkbox");
     checkbox.addEventListener("click", () => {
         isWebAccessOn = checkbox.checked;
+        source = checkbox.checked;
         chrome.storage.sync.set({ "web_access": checkbox.checked });
+        toggleWebAccessDiv.querySelector(".source-checkbox").checked = source;
     });
 
     chrome.storage.sync.get("source", (data) => {
         toggleWebAccessDiv.querySelector(".source-checkbox").checked = data.source;
+        source = data.source;
     });
 
-    var checkbox = toggleWebAccessDiv.querySelector(".source-checkbox");
-    checkbox.addEventListener("click", () => {
-        source = checkbox.checked;
-        chrome.storage.sync.set({ "source": checkbox.checked });
+    var checkboxSource = toggleWebAccessDiv.querySelector(".source-checkbox");
+    checkboxSource.addEventListener("click", () => {
+        source = checkboxSource.checked;
+        chrome.storage.sync.set({ "source": checkboxSource.checked });
     });    
-
 
     // Number of web results
     var numResultsDropdown = document.createElement("select");
