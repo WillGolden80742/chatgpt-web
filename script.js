@@ -216,11 +216,11 @@ function updateUI() {
 
     var checkbox = toggleWebAccessDiv.querySelector(".web-chatgpt-toggle-checkbox");
     checkbox.addEventListener("click", () => {
-        isWebAccessOn = checkbox.checked;
-        source = checkbox.checked;
-        chrome.storage.sync.set({ "web_access": checkbox.checked });
-        toggleWebAccessDiv.querySelector(".source-checkbox").checked = source;
-        toggleWebAccessDiv.querySelector(".source-checkbox").disabled = !isWebAccessOn;
+      isWebAccessOn = checkbox.checked;
+      source = checkbox.checked;
+      chrome.storage.sync.set({ "web_access": isWebAccessOn, "source": source });
+      toggleWebAccessDiv.querySelector(".source-checkbox").checked = source;
+      toggleWebAccessDiv.querySelector(".source-checkbox").disabled = !isWebAccessOn;
     });
 
     chrome.storage.sync.get("source", (data) => {
