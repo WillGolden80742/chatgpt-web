@@ -27,88 +27,88 @@ function translate (region,query) {
     region = region.split("-")[1];
     switch (region) {
         case "pt":
-            return "Exercício:\nDesconsiderando seu banco de dados desatualizado e com base nos resultados de busca, tente adivinhar:\n"+query+"\nRESPONDA EM PORTUGUÊS:";
+            return "Exercício:\nDesconsiderando seu banco de dados desatualizado e com base nos resultados de busca, tente adivinhar:\n"+query;
         case "es":
-            return "Ejercicio:\nDespreciando tu base de datos desactualizada y basándote en los resultados de búsqueda, intenta adivinar:\n"+query+"\nRESPONDE EN ESPAÑOL:";
+            return "Ejercicio:\nDespreciando tu base de datos desactualizada y basándote en los resultados de búsqueda, intenta adivinar:\n"+query;
         case "fr":
-            return "Exercice:\nEn ignorant votre base de données obsolète et en vous basant sur les résultats de recherche, essayez de deviner:\n"+query+"\nREPONDEZ EN FRANÇAIS:";
+            return "Exercice:\nEn ignorant votre base de données obsolète et en vous basant sur les résultats de recherche, essayez de deviner:\n"+query;
         case "de":
-            return "Übung:\nIgnorieren Sie Ihre veraltete Datenbank und basierend auf den Suchergebnissen versuchen Sie zu erraten:\n"+query+"\nANTWORTEN SIE AUF DEUTSCH:";
+            return "Übung:\nIgnorieren Sie Ihre veraltete Datenbank und basierend auf den Suchergebnissen versuchen Sie zu erraten:\n"+query;
         case "it":
-            return "Esercizio:\nIgnorando il tuo database obsoleto e basandoti sui risultati di ricerca, prova a indovinare:\n"+query+"\nRISPOSTA IN ITALIANO:";
+            return "Esercizio:\nIgnorando il tuo database obsoleto e basandoti sui risultati di ricerca, prova a indovinare:\n"+query;
         case "ru":
-            return "Упражнение:\nИгнорируя вашу устаревшую базу данных и основываясь на результатах поиска, попробуйте угадать:\n"+query+"\nОТВЕТЬТЕ НА РУССКОМ:";
+            return "Упражнение:\nИгнорируя вашу устаревшую базу данных и основываясь на результатах поиска, попробуйте угадать:\n"+query;
         case "zh":
-            return "练习:\n忽略您的过时数据库，并根据搜索结果猜测:\n"+query+"\n用中文回答:";
+            return "练习:\n忽略您的过时数据库，并根据搜索结果猜测:\n"+query;
         case "ar":
-            return "تمرين:\nتجاهل قاعدة البيانات القديمة الخاصة بك وبناءً على نتائج البحث، حاول التخمين:\n"+query+"\nاجابة بالعربية:";
+            return "تمرين:\nتجاهل قاعدة البيانات القديمة الخاصة بك وبناءً على نتائج البحث، حاول التخمين:\n"+query;
         case "nl":
-            return "Oefening:\nNegeer uw verouderde database en probeer te raden op basis van de zoekresultaten:\n"+query+"\nANTWOORD IN HET NEDERLANDS:";
+            return "Oefening:\nNegeer uw verouderde database en probeer te raden op basis van de zoekresultaten:\n"+query;
         case "bg":
-            return "Упражнение:\nИгнорирайте вашата остаряла база данни и се опитайте да познаете на база на резултатите от търсенето:\n"+query+"\nОТГОВОРЕТЕ НА БЪЛГАРСКИ:";
+            return "Упражнение:\nИгнорирайте вашата остаряла база данни и се опитайте да познаете на база на резултатите от търсенето:\n"+query;
         case "ca":
-            return "Exercici:\nIgnorant la vostra base de dades obsoleta i basant-vos en els resultats de cerca, intenteu endevinar:\n"+query+"\nRESPONDEU EN CATALÀ:";
+            return "Exercici:\nIgnorant la vostra base de dades obsoleta i basant-vos en els resultats de cerca, intenteu endevinar:\n"+query;
         case "hr":
-            return "Vježba:\nZanemarite svoju zastarjelu bazu podataka i pokušajte pogoditi na temelju rezultata pretraživanja:\n"+query+"\nODGOVORITE NA HRVATSKOM:";
+            return "Vježba:\nZanemarite svoju zastarjelu bazu podataka i pokušajte pogoditi na temelju rezultata pretraživanja:\n"+query;
         case "cs":
-            return "Cvičení:\nIgnorujte svou zastaralou databázi a pokuste se uhodnout na základě výsledků vyhledávání:\n"+query+"\nODPOVEZTE SE NA ČESKY:";
+            return "Cvičení:\nIgnorujte svou zastaralou databázi a pokuste se uhodnout na základě výsledků vyhledávání:\n"+query;
         case "da":
-            return "Øvelse:\nIgnorer din forældede database og prøv at gætte på baggrund af søgeresultaterne:\n"+query+"\nSVAR PÅ DANSK:";
+            return "Øvelse:\nIgnorer din forældede database og prøv at gætte på baggrund af søgeresultaterne:\n"+query;
         case "et":
-            return "Harjutus:\nIgnoreeri oma aegunud andmebaasi ja püüa põhjalikult otsingutulemuste põhjal arvata:\n"+query+"\nVASTA EESTI KEELES:";
+            return "Harjutus:\nIgnoreeri oma aegunud andmebaasi ja püüa põhjalikult otsingutulemuste põhjal arvata:\n"+query;
         case "fi":
-            return "Harjoitus:\nJätä huomiotta vanhentunut tietokantasi ja yritä arvata perustuen hakutuloksiin:\n"+query+"\nVASTAA SUOMEKSI:";
+            return "Harjoitus:\nJätä huomiotta vanhentunut tietokantasi ja yritä arvata perustuen hakutuloksiin:\n"+query;
         case "el":
-            return "Άσκηση:\nΑγνοήστε την απαρχαιωμένη βάση δεδομένων σας και βάσει των αποτελεσμάτων αναζήτησης, προσπαθήστε να μαντέψετε:\n"+query+"\nΑΠΑΝΤΗΣΤΕ ΕΝ ΕΛΛΗΝΙΚΗΣ:";
+            return "Άσκηση:\nΑγνοήστε την απαρχαιωμένη βάση δεδομένων σας και βάσει των αποτελεσμάτων αναζήτησης, προσπαθήστε να μαντέψετε:\n"+query;
         case "tzh":
-            return "練習:\n忽略您的過時數據庫，並根據搜索結果猜測:\n"+query+"\n用中文回答:";
+            return "練習:\n忽略您的過時數據庫，並根據搜索結果猜測:\n"+query;
         case "hu":
-            return "Gyakorlat:\nFigyelmen kívül hagyja az elavult adatbázisát, és megpróbálja kitalálni a keresési eredmények alapján:\n"+query+"\nVÁLASZOLJON MAGYARUL:";
+            return "Gyakorlat:\nFigyelmen kívül hagyja az elavult adatbázisát, és megpróbálja kitalálni a keresési eredmények alapján:\n"+query;
         case "id":
-            return "Latihan:\nAbaikan basis data yang usang Anda dan berdasarkan hasil pencarian, cobalah menebak:\n"+query+"\nJAWABAN DENGAN BAHASA INDONESIA:";
+            return "Latihan:\nAbaikan basis data yang usang Anda dan berdasarkan hasil pencarian, cobalah menebak:\n"+query;
         case "he":
-            return "תרגיל:\nהתעלם מבסיס הנתונים המיושן שלך ובהתבסס על תוצאות החיפוש, נסה לנחש:\n"+query+"\nתשובה בעברית:";
+            return "תרגיל:\nהתעלם מבסיס הנתונים המיושן שלך ובהתבסס על תוצאות החיפוש, נסה לנחש:\n"+query;
         case "jp":
-            return "演習:\n古いデータベースを無視し、検索結果に基づいて推測してください:\n"+query+"\n日本語で答えてください:";
+            return "演習:\n古いデータベースを無視し、検索結果に基づいて推測してください:\n"+query;
         case "kr":
-            return "연습:\n오래된 데이터베이스를 무시하고 검색 결과를 기반으로 추측하십시오:\n"+query+"\n한국어로 답하세요:";
+            return "연습:\n오래된 데이터베이스를 무시하고 검색 결과를 기반으로 추측하십시오:\n"+query;
         case "lv":
-            return "Vingrinājums:\nIgnorē savu novecojušo datu bāzi un mēģiniet uzminēt, pamatojoties uz meklēšanas rezultātiem:\n"+query+"\nATBILDE LATVISKI:";
+            return "Vingrinājums:\nIgnorē savu novecojušo datu bāzi un mēģiniet uzminēt, pamatojoties uz meklēšanas rezultātiem:\n"+query;
         case "lt":
-            return "Praktika:\nNepaisykite savo pasenusios duomenų bazės ir pagal paieškos rezultatus bandykite atspėti:\n"+query+"\nATSAKYKITE LIETUVIŲ KALBA:";
+            return "Praktika:\nNepaisykite savo pasenusios duomenų bazės ir pagal paieškos rezultatus bandykite atspėti:\n"+query;
         case "ms":
-            return "Latihan:\nAbaikan pangkalan data yang usang anda dan berdasarkan hasil carian, cuba tebak:\n"+query+"\nJAWAPAN DENGAN BAHASA MELAYU:";
+            return "Latihan:\nAbaikan pangkalan data yang usang anda dan berdasarkan hasil carian, cuba tebak:\n"+query;
         case "nl":
-            return "Oefening:\nNegeer uw verouderde database en probeer te raden op basis van de zoekresultaten:\n"+query+"\nANTWOORD IN HET NEDERLANDS:";
+            return "Oefening:\nNegeer uw verouderde database en probeer te raden op basis van de zoekresultaten:\n"+query;
         case "no":
-            return "Øvelse:\nIgnorer din forældede database og prøv å gjette på bakgrunn av søkeresultatene:\n"+query+"\nSVAR PÅ NORSK:";
+            return "Øvelse:\nIgnorer din forældede database og prøv å gjette på bakgrunn av søkeresultatene:\n"+query;
         case "tl":
-            return "Pagsasanay:\nHuwag pansinin ang iyong lumang database at batay sa mga resulta ng paghahanap, subukan mong adivin:\n"+query+"\nSAGOT SA TAGALOG:";
+            return "Pagsasanay:\nHuwag pansinin ang iyong lumang database at batay sa mga resulta ng paghahanap, subukan mong adivin:\n"+query;
         case "pl":
-            return "Ćwiczenie:\nZignoruj swoją przestarzałą bazę danych i spróbuj zgadnąć na podstawie wyników wyszukiwania:\n"+query+"\nODPOWIEDŹ W JĘZYKU POLSKIM:";
+            return "Ćwiczenie:\nZignoruj swoją przestarzałą bazę danych i spróbuj zgadnąć na podstawie wyników wyszukiwania:\n"+query;
         case "ro":
-            return "Exercițiu:\nIgnorați baza de date învechită și încercați să ghiciți pe baza rezultatelor căutării:\n"+query+"\nRĂSPUNS ÎN LIMBA ROMÂNĂ:";
+            return "Exercițiu:\nIgnorați baza de date învechită și încercați să ghiciți pe baza rezultatelor căutării:\n"+query;
         case "sk":
-            return "Cvičenie:\nIgnorujte svoju zastaranú databázu a pokúste sa uhádnuť na základe výsledkov vyhľadávania:\n"+query+"\nODPOVEDAŤ V SLOVENČINE:";
+            return "Cvičenie:\nIgnorujte svoju zastaranú databázu a pokúste sa uhádnuť na základe výsledkov vyhľadávania:\n"+query;
         case "sl":
-            return "Vaje:\nPrezrite si svojo zastarelo podatkovno bazo in poskusite ugibati na podlagi rezultatov iskanja:\n"+query+"\nODGOVORITE V SLOVENŠČINI:";
+            return "Vaje:\nPrezrite si svojo zastarelo podatkovno bazo in poskusite ugibati na podlagi rezultatov iskanja:\n"+query;
         case "sv":
-            return "Övning:\nIgnorera din föråldrad databas och försök att gissa baserat på sökresultaten:\n"+query+"\nSVARA PÅ SVENSKA:";
+            return "Övning:\nIgnorera din föråldrad databas och försök att gissa baserat på sökresultaten:\n"+query;
         case "th":
-            return "การฝึก:\nละเว้นฐานข้อมูลที่เก่าแล้วของคุณและพยายามทายตามผลการค้นหา:\n"+query+"\nตอบภาษาไทย:";
+            return "การฝึก:\nละเว้นฐานข้อมูลที่เก่าแล้วของคุณและพยายามทายตามผลการค้นหา:\n"+query;
         case "tr":
-            return "Alıştırma:\nEski veritabanınızı göz ardı edin ve arama sonuçlarına göre tahmin edin:\n"+query+"\nTÜRKÇE CEVAP VERİN:";
+            return "Alıştırma:\nEski veritabanınızı göz ardı edin ve arama sonuçlarına göre tahmin edin:\n"+query;
         case "uk":
-            return "Практика:\nІгноруйте свою застарілу базу даних і спробуйте вгадати на основі результатів пошуку:\n"+query+"\nВІДПОВІДЬ УКРАЇНСЬКОЮ:";
+            return "Практика:\nІгноруйте свою застарілу базу даних і спробуйте вгадати на основі результатів пошуку:\n"+query;
         case "vi":   
-            return "Bài tập:\nBỏ qua cơ sở dữ liệu cũ của bạn và cố gắng đoán dựa trên kết quả tìm kiếm:\n"+query+"\nTRẢ LỜI BẰNG TIẾNG VIỆT:";                     
+            return "Bài tập:\nBỏ qua cơ sở dữ liệu cũ của bạn và cố gắng đoán dựa trên kết quả tìm kiếm:\n"+query;
         default:
-            return "Exercise:\nIgnoring your outdated database and based on the search results, try to guess:\n"+query+"\nANSWER IN ENGLISH:";
+            return "Exercise:\nIgnoring your outdated database and based on the search results, try to guess:\n"+query;
     }
 }
 
 function pasteWebResultsToTextArea(results, query) {
-    let formattedResults = "In day "+(new Date().toLocaleDateString())+", user googled \""+query+"\" and got the following results order by date (with the most recent results first):\n\n";
+    let formattedResults = "In day "+(new Date().toLocaleDateString())+", user googled \""+query+"\"and got the following results order by date (with the most recent results first):\n\n";
     formattedResults = formattedResults + results.reduce((acc, result) => acc += `"${result.body}"\n${href(result)}\n`, "");
     formattedResults = formattedResults + `${translate(region,query).toUpperCase()}`;
     textarea.value = formattedResults;
@@ -158,12 +158,21 @@ function onSubmit(event) {
                 pasteWebResultsToTextArea(results, query);
                 pressEnter();
                 isProcessing = false;
-              });
+            });
+            cleanSearch(query);
         } catch (error) {
             isProcessing = false;
             showErrorMessage(error);
         }
     }
+}
+
+function cleanSearch (text) {
+    setTimeout(() => {
+        const divs = document.querySelectorAll('.items-start');
+        const lastDiv = divs[divs.length-3];
+        lastDiv.innerHTML = text;
+    }, 1000);
 }
 
 function updateTitleAndDescription() {
