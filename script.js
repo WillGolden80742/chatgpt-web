@@ -12,7 +12,6 @@ chrome.storage.sync.get(["num_web_results", "web_access", "region"], (data) => {
     region = data.region || "wt-wt";
 });
 
-
 function showErrorMessage(e) {
     console.info("WebChatGPT error --> API error: ", e);
     var errorDiv = document.createElement("div");
