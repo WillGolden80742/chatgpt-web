@@ -151,10 +151,10 @@ function onSubmit(event) {
                 isProcessing = false;
                 return;
             }
-
             api_search(query, numWebResults, timePeriod, region)
               .then(results => {
-                pasteWebResultsToTextArea(results, query);
+                queryFormated = query.replace(/\n/g, ' ');
+                pasteWebResultsToTextArea(results, queryFormated);
                 pressEnter();
                 isProcessing = false;
             });
@@ -171,7 +171,7 @@ function cleanSearch (text) {
         const divs = document.querySelectorAll('.items-start');
         const lastDiv = divs[divs.length-3];
         lastDiv.innerHTML = text;
-    }, 1000);
+    }, 1500);
 }
 
 function updateTitleAndDescription() {
