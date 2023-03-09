@@ -4,9 +4,6 @@ async function api_search(query, numResults, timePeriod, region) {
     if (timePeriod !== "") {
         url += `&time=${timePeriod}`;
     }
-    if (region !== "") {
-        url += `&region=${region}`;
-    }
 
     const response = await fetch(url);
     return await response.json();
