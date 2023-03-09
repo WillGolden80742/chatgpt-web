@@ -40,6 +40,7 @@ function pressEnter() {
 }
 
 function onSubmit(event) {
+    setPlaceHolder(0);
     if (event.shiftKey && event.key === 'Enter') {
         return;
     }
@@ -50,32 +51,29 @@ function onSubmit(event) {
 }
 
 function doSearch () {
-    var query = document.getElementById("search-input").value;
-    var question = textarea.value;
-    if (query.length > 0) {
+    var search = document.getElementById("search-input").value;
+    var query = textarea.value;
+    if (search.length > 0) {
         if (!isProcessing) {
 
             isProcessing = true;
-            if (question.length == 0) {
-                question = query;
-            }
             try {
                 textarea.value = "";
                 document.getElementById("search-input").value = "";
-                query = query.trim();
+                search = search.trim();
     
-                if (query === "") {
+                if (search === "") {
                     isProcessing = false;
                     return;
                 }
-                api_search(query, numWebResults, timePeriod)
+                api_search(search, numWebResults, timePeriod)
                   .then(results => {
-                    queryFormated = query.replace(/\n/g, ' ');
-                    pasteWebResultsToTextArea(results, queryFormated,question);
+                    searchFormated = search.replace(/\n/g, ' ');
+                    pasteWebResultsToTextArea(results, searchFormated,query);
                     pressEnter();
                     isProcessing = false;
                 });
-                cleanSearch(query,question);
+                cleanSearch(search,query);
             } catch (error) {
                 isProcessing = false;
                 showErrorMessage(error);
@@ -85,16 +83,22 @@ function doSearch () {
 }
 
 
-function cleanSearch(query = "", question = "") {
+function cleanSearch(search = "", query = "") {
     setTimeout(() => {
         const divs = document.querySelectorAll('.items-start');
         const lastDiv = divs[divs.length-3];
-        if (query !== question && question !== "") {
-            lastDiv.innerText = `Query: ${query}\nRequest: ${question}`;
+        if (search !== query && query !== "") {
+            lastDiv.innerText = `Query: ${query}\nSearch: ${search}`;
         } else {
-            lastDiv.innerText = query;
+            lastDiv.innerText = search;
         }
     }, 1500);
+}
+
+function setPlaceHolder (time = 1500) {
+    setTimeout(() => {
+        textarea.setAttribute("placeholder", "Query");
+    }, time);
 }
 
 function updateTitleAndDescription() {
@@ -122,6 +126,9 @@ function updateUI() {
     if (!textarea) {
         return;
     }
+
+    setPlaceHolder();
+
     var textareaWrapper = textarea.parentNode;
 
     var btnSubmit = textareaWrapper.querySelector("button");
@@ -136,7 +143,7 @@ function updateUI() {
 
     // Web access switch
     var toggleWebAccessDiv = document.createElement("div");
-    toggleWebAccessDiv.innerHTML = '<input id="search-input" class="search-input py-2 font-medium bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:border-gray-600 dark:hover:bg-gray-900 bg-gray disabled:text-gray-300 disabled:hover:bg-transparent px-2 rounded" placeholder="Search" style="width:370px;"></input>&nbsp;&nbsp;<button id="search-button" class="search-button py-2 font-medium bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:border-gray-600 dark:hover:bg-gray-900 bg-gray disabled:text-gray-300 disabled:hover:bg-transparent px-2 rounded" style="background-image: url(data:image/svg+xml;base64,'+searchIcon+'); background-size: 60%; background-repeat: no-repeat; background-position: 50% 50%;" >&nbsp;&nbsp;&nbsp;&nbsp;</button>&nbsp;&nbsp;<button class="dan-button py-2 font-medium bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:border-gray-600 dark:hover:bg-gray-900 bg-gray disabled:text-gray-300 disabled:hover:bg-transparent px-2 rounded">DAN</button>&nbsp;&nbsp;';
+    toggleWebAccessDiv.innerHTML = '<input id="search-input" class="search-input py-2 font-medium bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:border-gray-600 dark:hover:bg-gray-900 bg-gray disabled:text-gray-300 disabled:hover:bg-transparent px-2 rounded" placeholder="Search" style="width:390px;"></input>&nbsp;&nbsp;<button id="search-button" class="search-button py-2 font-medium bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:border-gray-600 dark:hover:bg-gray-900 bg-gray disabled:text-gray-300 disabled:hover:bg-transparent px-2 rounded" style="background-image: url(data:image/svg+xml;base64,'+searchIcon+'); background-size: 60%; background-repeat: no-repeat; background-position: 50% 50%;" >&nbsp;&nbsp;&nbsp;&nbsp;</button>&nbsp;&nbsp;<button class="dan-button py-2 font-medium bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:border-gray-600 dark:hover:bg-gray-900 bg-gray disabled:text-gray-300 disabled:hover:bg-transparent px-2 rounded">DAN</button>';
 
     var danButton = toggleWebAccessDiv.querySelector(".dan-button");
     danButton.addEventListener("click", () => {
