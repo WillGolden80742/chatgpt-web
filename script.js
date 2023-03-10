@@ -167,7 +167,11 @@ function updateUI() {
     searchInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
           event.preventDefault();
-          textarea.focus();
+          if(textarea.value.length > 1) {
+            textarea.focus();
+          } else {
+            doSearch();
+          }
         }
     });
 
