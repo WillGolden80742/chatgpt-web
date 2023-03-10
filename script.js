@@ -143,7 +143,7 @@ function updateUI() {
 
     // Web access switch
     var toggleWebAccessDiv = document.createElement("div");
-    toggleWebAccessDiv.innerHTML = '<input id="search-input" class="search-input py-2 font-medium bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:border-gray-600 dark:hover:bg-gray-900 bg-gray disabled:text-gray-300 disabled:hover:bg-transparent px-2 rounded" placeholder="Search" style="width:390px;"></input>&nbsp;&nbsp;<button id="search-button" class="search-button py-2 font-medium bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:border-gray-600 dark:hover:bg-gray-900 bg-gray disabled:text-gray-300 disabled:hover:bg-transparent px-2 rounded" style="background-image: url(data:image/svg+xml;base64,'+searchIcon+'); background-size: 60%; background-repeat: no-repeat; background-position: 50% 50%;" >&nbsp;&nbsp;&nbsp;&nbsp;</button>&nbsp;&nbsp;<button class="dan-button py-2 font-medium bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:border-gray-600 dark:hover:bg-gray-900 bg-gray disabled:text-gray-300 disabled:hover:bg-transparent px-2 rounded">DAN</button>';
+    toggleWebAccessDiv.innerHTML = '<ul class="suggestion py-2 font-medium bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:border-gray-600 dark:hover:bg-gray-900 bg-gray disabled:text-gray-300 disabled:hover:bg-transparent px-2 rounded" style="position:absolute; top:100%; width: 51%;"><li>Sugestões</li></ul><input id="search-input" class="search-input py-2 font-medium bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:border-gray-600 dark:hover:bg-gray-900 bg-gray disabled:text-gray-300 disabled:hover:bg-transparent px-2 rounded" placeholder="Search" style="width:390px;"></input>&nbsp;&nbsp;<button id="search-button" class="search-button py-2 font-medium bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:border-gray-600 dark:hover:bg-gray-900 bg-gray disabled:text-gray-300 disabled:hover:bg-transparent px-2 rounded" style="background-image: url(data:image/svg+xml;base64,'+searchIcon+'); background-size: 60%; background-repeat: no-repeat; background-position: 50% 50%;" >&nbsp;&nbsp;&nbsp;&nbsp;</button>&nbsp;&nbsp;<button class="dan-button py-2 font-medium bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:border-gray-600 dark:hover:bg-gray-900 bg-gray disabled:text-gray-300 disabled:hover:bg-transparent px-2 rounded">DAN</button>';
 
     var danButton = toggleWebAccessDiv.querySelector(".dan-button");
     danButton.addEventListener("click", () => {
@@ -185,7 +185,6 @@ function updateUI() {
           }
         }
     });
-
 
     // Number of web results
     var numResultsDropdown = document.createElement("select");
