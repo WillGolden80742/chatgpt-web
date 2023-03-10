@@ -160,14 +160,18 @@ function updateUI() {
     var searchInput = toggleWebAccessDiv.querySelector(".search-input");
     searchButton.addEventListener("click", () => {
         if (searchInput.value.length > 0) {
-            doSearch();
+            if(textarea.value.length < 1 && searchInput.value.length != 0) {
+                textarea.focus();
+            } else {
+                doSearch();
+            }
         }
     });
  
     searchInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
           event.preventDefault();
-          if(textarea.value.length < 1) {
+          if(textarea.value.length < 1 && searchInput.value.length != 0) {
             textarea.focus();
           } else {
             doSearch();
