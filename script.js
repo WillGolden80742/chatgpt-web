@@ -167,6 +167,13 @@ function updateUI() {
             }
         }
     });
+
+    searchInput.addEventListener("focus", function() {
+        textarea.setAttribute("placeholder", "Press enter twice if you do not want to enter values in Query");
+        setTimeout(() => {
+            textarea.setAttribute("placeholder", "Query");
+        }, 5000);
+    });
  
     searchInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
